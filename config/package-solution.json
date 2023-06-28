@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "MOLACE-meeting-minutes-form-solution-v2",
+    "id": "49e135ee-c28c-4a1c-bdf5-013710fa88eb",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.16.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Meeting Minutes Form description"
+      },
+      "longDescription": {
+        "default": "Meeting Minutes Form description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "meeting-minutes-form-v2 Feature",
+        "description": "The feature that activates elements of the meeting-minutes-form-v2 solution.",
+        "id": "db32381f-354a-414b-9dea-43c3586fc9fd",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/meeting-minutes-form-v2.sppkg"
+  }
+}

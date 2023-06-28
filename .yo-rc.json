@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "16.19.1",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.4.1"
+    },
+    "version": "1.16.1",
+    "libraryName": "meeting-minutes-form",
+    "libraryId": "49e135ee-c28c-4a1c-bdf5-013710fa88eb",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "Meeting Minutes Form",
+    "solutionShortDescription": "Meeting Minutes Form description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

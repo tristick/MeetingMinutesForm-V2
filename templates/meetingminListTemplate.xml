@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema">
+  <pnp:Preferences Generator="OfficeDevPnP.Core, Version=3.28.2012.0, Culture=neutral, PublicKeyToken=5e633289e95c321a" />
+  <pnp:Templates ID="CONTAINER-TEMPLATE-D1D6BCF3A01C47E9B73AAC06FB436D60">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-D1D6BCF3A01C47E9B73AAC06FB436D60" Version="1" BaseSiteTemplate="GROUP#0" Scope="RootSite">
+      <pnp:Lists>
+        <pnp:ListInstance Title="Meeting Minutes" Description=" " DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/Meeting Minutes" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Meeting Minutes/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Meeting Minutes/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Meeting Minutes/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{9C4A5B3B-9E42-4063-A49B-6F39B2D8B44F}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Meeting Minutes/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query />
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Customer" />
+                <FieldRef Name="Location" />
+                <FieldRef Name="MeetingDate" />
+                <FieldRef Name="AttendeesMOLEA" />
+                <FieldRef Name="AttendeesCustomer" />
+                <FieldRef Name="AttendeesOther" />
+                <FieldRef Name="PurposeofMeetingDocuments" />
+                <FieldRef Name="ManagementSummary" />
+                <FieldRef Name="ManagementSummaryDocuments" />
+                <FieldRef Name="MainMinutes" />
+                <FieldRef Name="MainMinutesDocuments" />
+                <FieldRef Name="Actions" />
+                <FieldRef Name="MeetingTitle" />
+                <FieldRef Name="PurposeOfMeeting" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+              <CustomFormatter />
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="Customer" Format="Dropdown" IsModern="TRUE" MaxLength="255" Name="Customer" Title="Customer" Type="Text" ID="{f981e46c-4929-4003-8baf-f86f09854b40}" SourceID="{{listid:Meeting Minutes}}" StaticName="Customer" ColName="nvarchar7" RowOrdinal="0" />
+            <Field DisplayName="Location" Format="Dropdown" IsModern="TRUE" MaxLength="255" Name="Location" Title="Location" Type="Text" ID="{1ac8907e-5a02-44e9-8b71-d885c32eecbb}" SourceID="{{listid:Meeting Minutes}}" StaticName="Location" ColName="nvarchar8" RowOrdinal="0" />
+            <Field DisplayName="Meeting Date" FriendlyDisplayFormat="Disabled" Format="DateOnly" IsModern="TRUE" Name="MeetingDate" Title="MeetingDate" Type="DateTime" ID="{c89e1cdd-cafd-45f4-a214-c6e101ff7030}" SourceID="{{listid:Meeting Minutes}}" StaticName="MeetingDate" ColName="datetime1" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" CalType="0" Version="1" />
+            <Field DisplayName="Attendees MOLEA" Format="Dropdown" IsModern="TRUE" List="UserInfo" Name="AttendeesMOLEA" Title="AttendeesMOLEA" Type="UserMulti" UserSelectionMode="PeopleOnly" UserSelectionScope="0" ID="{2aba56f4-1307-49a8-8eb3-ca23ce1b245a}" SourceID="{{listid:Meeting Minutes}}" StaticName="AttendeesMOLEA" ColName="int1" RowOrdinal="0" Required="FALSE" EnforceUniqueValues="FALSE" Group="" ShowField="ImnName" Mult="TRUE" Sortable="FALSE" Version="2" />
+            <Field DisplayName="Attendees Customer" Format="Dropdown" IsModern="TRUE" MaxLength="255" Name="AttendeesCustomer" Title="AttendeesCustomer" Type="Text" ID="{82eb7e60-d038-4215-899d-25ec9b2b2e79}" SourceID="{{listid:Meeting Minutes}}" StaticName="AttendeesCustomer" ColName="nvarchar9" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Version="1" />
+            <Field AppendOnly="FALSE" DisplayName="Attendees Other" Format="Dropdown" IsModern="TRUE" IsolateStyles="FALSE" Name="AttendeesOther" RichText="FALSE" RichTextMode="Compatible" Title="AttendeesOther" Type="Note" ID="{3ec606dc-a829-4b8a-a48e-84c491f1795e}" SourceID="{{listid:Meeting Minutes}}" StaticName="AttendeesOther" ColName="ntext2" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RestrictedMode="TRUE" Version="1" />
+            <Field AppendOnly="FALSE" DisplayName="Purpose of Meeting Documents" Format="Dropdown" IsModern="TRUE" IsolateStyles="TRUE" Name="PurposeofMeetingDocuments" RichText="TRUE" RichTextMode="FullHtml" Title="PurposeofMeetingDocuments" Type="Note" ID="{9b6edf96-2549-41fe-9368-d0ae3a8ee2f0}" SourceID="{{listid:Meeting Minutes}}" StaticName="PurposeofMeetingDocuments" ColName="ntext4" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RestrictedMode="TRUE" Version="2" />
+            <Field AppendOnly="FALSE" DisplayName="Management Summary" Format="Dropdown" IsModern="TRUE" IsolateStyles="FALSE" Name="ManagementSummary" RichText="FALSE" RichTextMode="Compatible" Title="ManagementSummary" Type="Note" ID="{f1cde00b-cf81-4c95-badb-5612bd059cda}" SourceID="{{listid:Meeting Minutes}}" StaticName="ManagementSummary" ColName="ntext5" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RestrictedMode="TRUE" Version="1" />
+            <Field AppendOnly="FALSE" DisplayName="Management Summary Documents" Format="Dropdown" IsModern="TRUE" IsolateStyles="TRUE" Name="ManagementSummaryDocuments" RichText="TRUE" RichTextMode="FullHtml" Title="ManagementSummaryDocuments" Type="Note" ID="{beccc130-39fd-4b71-9a3b-09ec304a6efa}" SourceID="{{listid:Meeting Minutes}}" StaticName="ManagementSummaryDocuments" ColName="ntext6" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RestrictedMode="TRUE" Version="2" />
+            <Field AppendOnly="FALSE" DisplayName="Main Minutes" Format="Dropdown" IsModern="TRUE" IsolateStyles="FALSE" Name="MainMinutes" RichText="FALSE" RichTextMode="Compatible" Title="MainMinutes" Type="Note" ID="{4622589b-8c92-47ba-ac75-6aa0afc22224}" SourceID="{{listid:Meeting Minutes}}" StaticName="MainMinutes" ColName="ntext7" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RestrictedMode="TRUE" Version="1" />
+            <Field AppendOnly="FALSE" DisplayName="Main Minutes Documents" Format="Dropdown" IsModern="TRUE" IsolateStyles="TRUE" Name="MainMinutesDocuments" RichText="TRUE" RichTextMode="FullHtml" Title="MainMinutesDocuments" Type="Note" ID="{e40831e1-cdf4-40bb-9321-6abc9e286af0}" SourceID="{{listid:Meeting Minutes}}" StaticName="MainMinutesDocuments" ColName="ntext8" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RestrictedMode="TRUE" Version="2" />
+            <Field AppendOnly="FALSE" DisplayName="Actions" Format="Dropdown" IsModern="TRUE" IsolateStyles="FALSE" Name="Actions" RichText="FALSE" RichTextMode="Compatible" Title="Actions" Type="Note" ID="{edb3fb15-b764-42cc-b8e2-cdbd5c446f2a}" SourceID="{{listid:Meeting Minutes}}" StaticName="Actions" ColName="ntext9" RowOrdinal="0" />
+            <Field Type="Text" DisplayName="Meeting Title" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{a273ce22-d901-43c2-8f83-00a6284f57a3}" SourceID="{{listid:Meeting Minutes}}" StaticName="MeetingTitle" Name="MeetingTitle" ColName="nvarchar10" RowOrdinal="0" CustomFormatter="" Version="1" />
+            <Field Type="Note" DisplayName="Purpose of Meeting" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" ID="{8b6186b9-2219-4e23-ac4a-c3d6d70cd645}" SourceID="{{listid:Meeting Minutes}}" StaticName="PurposeOfMeeting" Name="PurposeOfMeeting" ColName="ntext3" RowOrdinal="0" CustomFormatter="" RestrictedMode="TRUE" RichTextMode="Compatible" IsolateStyles="FALSE" AppendOnly="FALSE" Version="1" />
+          </pnp:Fields>
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="76d13cd2-1bae-45a5-8b74-545b87b65037" Name="_ColorTag" DisplayName="Color Tag" />
+          </pnp:FieldRefs>
+        </pnp:ListInstance>
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>
