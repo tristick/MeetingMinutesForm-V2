@@ -6,7 +6,8 @@ import { Web } from "@pnp/sp/webs";
 
 export const getCustomerRef=(props:IMeetingMinutesFormProps,customerName: string) => {
   //console.log(customerName)
-  const _web = Web(formconst.CUSTOMER_URL).using(SPFx(props.context));
+  
+  const _web = Web(props.custSiteUrl).using(SPFx(props.context));
   return new Promise((resolve, reject) => {
     _web.lists.getByTitle(formconst.CUSTOMER_LISTNAME).items.select("Internal").filter(`Title eq '${customerName}'`)()
       .then((items) => {
@@ -83,6 +84,28 @@ export const getcontactlistId = (props:IMeetingMinutesFormProps,weburl:string) =
 
 
 }
+
+
+export const getCustomerListId = (props:IMeetingMinutesFormProps) => {
+
+  const _web = Web(props.custSiteUrl).using(SPFx(props.context));
+  return new Promise((resolve,reject) =>{
+  _web.lists.getByTitle(formconst.CUSTOMER_LISTNAME).select("Id")()
+  
+    .then((list) => {
+      const listId = list.Id;
+    console.log(listId)
+      resolve(listId)
+  })
+
+  .catch(() => {
+    reject(null);
+  });
+});
+  
+
+}
+
 
 
 export const uploadAttachment = (props:IMeetingMinutesFormProps,folderUrl:any,filename:any, file:any,meetingid:string,weburl?:any)=>{

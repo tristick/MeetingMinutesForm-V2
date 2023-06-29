@@ -20,5 +20,6 @@ export interface IMeetingMinutesFormState {
     mmdocuments:string
     contactlistid:string
     weburl:any
-
+    customerlistId:string
+ 
 }

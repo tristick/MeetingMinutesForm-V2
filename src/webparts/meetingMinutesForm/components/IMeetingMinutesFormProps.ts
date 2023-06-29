@@ -7,8 +7,9 @@ export interface IMeetingMinutesFormProps {
   hasTeamsContext: boolean;
   userDisplayName: string;
   context:WebPartContext;
-  siteUrl:string
- 
+  siteUrl:string;
+  custSiteUrl: string
+  
 }
 export interface ICustomer {
 

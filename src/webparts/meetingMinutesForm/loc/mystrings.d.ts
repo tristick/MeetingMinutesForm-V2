@@ -1,4 +1,5 @@
 declare interface IMeetingMinutesFormWebPartStrings {
+  CustsiteurlFieldLabel: string;
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
@@ -10,6 +11,7 @@ declare interface IMeetingMinutesFormWebPartStrings {
   AppTeamsTabEnvironment: string;
   AppOfficeEnvironment: string;
   AppOutlookEnvironment: string;
+  CustsiteurlFieldLabel:string
 }
 
 declare module 'MeetingMinutesFormWebPartStrings' {

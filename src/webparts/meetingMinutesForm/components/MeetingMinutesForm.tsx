@@ -9,10 +9,11 @@ import 'react-quill/dist/quill.snow.css';
 import { IMeetingMinutesFormState } from './IMeetingMinutesFormState';
 import { IStyleFunctionOrObject, ITextFieldStyleProps, ITextFieldStyles, MessageBar, MessageBarType, PrimaryButton, Stack, TextField } from 'office-ui-fabric-react';
 import { DateConvention, DateTimePicker, ListItemPicker } from '@pnp/spfx-controls-react';
-import { getCustomerRef, getcontactlistId, getuserid, submitDataAndGetId, updateData, uploadAttachment } from '../../../services/formservices';
+import {  getCustomerListId, getCustomerRef, getcontactlistId, getuserid, submitDataAndGetId, updateData, uploadAttachment } from '../../../services/formservices';
 import ReactDOM from 'react-dom';
 import { isEmpty } from '@microsoft/sp-lodash-subset';
 import "@pnp/sp/files";
+
 
 
 let isemailInvalid:boolean = false;
@@ -23,6 +24,7 @@ let isselectedattendees:boolean = false ;
 let listId: number;
 let cweburl:any;
 let contactlist :string;
+//let customerlistId:any
 
 export default class MeetingMinutesForm extends React.Component<IMeetingMinutesFormProps, IMeetingMinutesFormState> {
   private pmdt: DataTransfer; 
@@ -59,28 +61,32 @@ export default class MeetingMinutesForm extends React.Component<IMeetingMinutesF
       msdocuments:"",
       mmdocuments:"",
       contactlistid:"",
-      weburl:""
+      weburl:"",
+      customerlistId:""
+    
 
     }
   
   }
-
- 
- /*  fetchCustomer = async () => {
+  public componentDidMount()
+  {
+    getCustomerListId(this.props).then((custlistId:string)=>{
+      if(custlistId ==null){
+        return "Customer List do not exists"
+      }else{
+      console.log("here",custlistId)
+      this.setState({customerlistId:custlistId},this.render)
+      }
+    })
     
-      const customerItem:any = await getCustomerItem(this.props);
-      console.log(customerItem)
-      try {
-        const customer = customerItem[0].Title
-        this.setState({customer:customer});
-        console.log(customer)
-        cweburl = customerItem[0].Internal;
-        console.log(cweburl)
- 
-    } catch (error) {
-      console.error('Error fetching customer items:', error);
-    }
-  }; */
+  }
+  
+   fetchCustomer = async () => {
+    
+      //customerlistId= await getCustomerListId(this.props);
+      //console.log(customerlistId)
+      
+  }; 
 
   private _oncustomerSelectedItem = async (data: { key: string; name: string }[])=> {
  
@@ -656,9 +662,9 @@ export default class MeetingMinutesForm extends React.Component<IMeetingMinutesF
         <div>
         <p className={styles.heading}>Overview</p>
         <ListItemPicker
-                  listId={formconst.CUSTOMER_LIST_ID}
+                  listId={this.state.customerlistId}
                   context={this.props.context as any}
-                  webUrl={formconst.CUSTOMER_URL}
+                  webUrl={this.props.custSiteUrl}
                   columnInternalName="Title"
                   keyColumnInternalName="Id"
                   placeholder="Select Customer"
@@ -669,6 +675,7 @@ export default class MeetingMinutesForm extends React.Component<IMeetingMinutesF
                   onSelectedItem={this._oncustomerSelectedItem}
                   noResultsFoundText="No Customer Found"
                   defaultSelectedItems={[]}
+                  key={this.state.customerlistId}
                 />
               
             {attcustFieldErrorMessage}

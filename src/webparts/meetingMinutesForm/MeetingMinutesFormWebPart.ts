@@ -3,6 +3,7 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
+
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
@@ -12,14 +13,20 @@ import * as strings from 'MeetingMinutesFormWebPartStrings';
 import MeetingMinutesForm from './components/MeetingMinutesForm';
 import { IMeetingMinutesFormProps } from './components/IMeetingMinutesFormProps';
 
+
+
 export interface IMeetingMinutesFormWebPartProps {
   description: string;
+  custsiteurl: string;
+  
 }
 
 export default class MeetingMinutesFormWebPart extends BaseClientSideWebPart<IMeetingMinutesFormWebPartProps> {
 
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = '';
+
+  
 
   public render(): void {
     const element: React.ReactElement<IMeetingMinutesFormProps> = React.createElement(
@@ -31,7 +38,9 @@ export default class MeetingMinutesFormWebPart extends BaseClientSideWebPart<IMe
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
         userDisplayName: this.context.pageContext.user.displayName,
         context:this.context,
-        siteUrl: this.context.pageContext.web.absoluteUrl
+        siteUrl: this.context.pageContext.web.absoluteUrl,
+        custSiteUrl:this.properties.custsiteurl,
+       
         
       }
     );
@@ -91,6 +100,7 @@ export default class MeetingMinutesFormWebPart extends BaseClientSideWebPart<IMe
 
   }
 
+ 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
   }
@@ -98,20 +108,24 @@ export default class MeetingMinutesFormWebPart extends BaseClientSideWebPart<IMe
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
-
+  protected get disableReactivePropertyChanges(): boolean {
+    return true;
+  }
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
         {
-          header: {
+          /* header: {
             description: strings.PropertyPaneDescription
-          },
+          }, */
           groups: [
             {
-              groupName: strings.BasicGroupName,
+              //groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('custsiteurl', {
+                  label: strings.CustsiteurlFieldLabel,
+                  onGetErrorMessage: this.validateUrl.bind(this), // Use onGetErrorMessage instead of validator
+                  deferredValidationTime: 300 // Add a delay to validate after 500ms of user input
                 })
               ]
             }
@@ -120,4 +134,21 @@ export default class MeetingMinutesFormWebPart extends BaseClientSideWebPart<IMe
       ]
     };
   }
+  private validateUrl(value: string) {
+    if (value) {
+     
+      const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+      if (!urlRegex.test(value)) {
+        return 'Please enter a valid URL';
+    
+      } 
+
+      
+     
+
+    }
+    return '';
+  }
+  
 }
+

@@ -8,8 +8,8 @@ export const LIBRARYNAME = "MeetingMinutesSupportingFiles"//"Meeting Minutes Doc
 //export const SUBMIT_REDIRECT = (props: IMeetingMinutesFormProps): URL => {return new URL(props.context.pageContext.web.absoluteUrl +"/SitePages/Home.aspx");};
 //export const CANCEL_REDIRECT = (props: IMeetingMinutesFormProps): URL => {return new URL(props.context.pageContext.web.absoluteUrl);};
 
-export const CUSTOMER_LIST_ID ="acea17d5-8c92-4eec-80c4-289c6faa4cea";
-export const CUSTOMER_URL = "https://k6931.sharepoint.com/sites/CommercialHub"
+//export const CUSTOMER_LIST_ID ="acea17d5-8c92-4eec-80c4-289c6faa4cea";
+//export const CUSTOMER_URL = "https://k6931.sharepoint.com/sites/CommercialHub"
 export const CUSTOMER_LISTNAME ="Customers";
 
 
